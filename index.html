@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="mobile.css">
     <link rel="stylesheet" href="tablet.css" > -->
@@ -30,24 +30,24 @@
     <div class= "navbardos">    
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Nosotros</a>
+              <a class="navbar-brand" href="#">REINVENTATE</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Acerca de</a>
+                    <a class="nav-link active" aria-current="page" href="acercade.html">Acerca de</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Mujer
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Casual</a></li>
+                      <li><a class="dropdown-item" href="mujercasual.html">Casual</a></li>
                       <li><a class="dropdown-item" href="#">Polo</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">Nuevos Diseños</a></li>
@@ -57,13 +57,13 @@
                           Hombre
                         </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Casual</a></li>
+                          <li><a class="dropdown-item" href="hombrecasual.html">Casual</a></li>
                           <li><a class="dropdown-item" href="#">Polo</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="#">Nuevos Diseños</a></li>
                     </ul>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Contacto</a>
+                        <a class="nav-link active" aria-current="page" href="contactus.html">Contacto</a>
                       </li>
                 </ul>
                 <form class="d-flex">
@@ -75,7 +75,7 @@
           </nav>
     </div>
     <div class="carrousel">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" >
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img width="300"height="500" src="img/reinventados.png" class="d-block w-100" alt="playerahombre">
@@ -100,7 +100,7 @@
         </button>
       </div>
         <!-- <section class="search" style="display:flex; justify-content: center; margin-top: 25px";>
-            
+            style="display:flex; align-self: center;
                 <input type = "text">
                 <img width="30"height="30"src="data:image/png;base64,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">
         </section>
@@ -123,7 +123,7 @@
          </nav> -->
        
          <div class="products">
-             <h1>DESTACADOS</h1>
+             <h1 id="destacados">DESTACADOS</h1>
              <br>
              <br>
              <br>
@@ -135,7 +135,13 @@
                 <p class="Description">
                     Descripción: 
                     <br>
-                    Playera representativa "Believe in your Self" </p>
+                    Playera representativa "Believe in your Self"
+                   <br> 
+                   $340
+                   <br> 
+                    <a style="margin: 0 16px" href= "formulariocompra.html" target= "black" rel= "nooper noreferrer"> <img style="border-radius:4px;" width="30"height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj6I2E7pq9iLaTsNiOWquTecyMMkdnGJTAQ&usqp=CAU"></a>
+                  </p>
+                    
               </div>
               <div class="col">
                 <img class= "imagenes border border border-info" width="200"height="200" src="https://i.pinimg.com/originals/d8/8a/13/d88a13eef7fa6416cd3f836af7329166.png" class="d-block w-100" alt="playeracuarentas">
@@ -143,7 +149,13 @@
                 <p class="Description">
                     Descripción: 
                     <br>
-                    Playera representativa "Los 40's" </p>
+                    Playera representativa "Los 40's"
+                    <br> 
+                    $450
+                    <br> 
+                     <a style="margin: 0 16px" href= "formulariocompra.html" target= "black" rel= "nooper noreferrer"> <img style="border-radius:4px;" width="30"height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj6I2E7pq9iLaTsNiOWquTecyMMkdnGJTAQ&usqp=CAU"></a>
+                   </p>
+                     
               </div>
               <div class="col">
                 <img class= "border border border-danger center" width="200"height="200" src="https://image.spreadshirtmedia.net/image-server/v1/mp/products/T1191A2MPA4221PT17X49Y82D150364702FS4626/views/1,width=378,height=378,appearanceId=2,backgroundColor=F2F2F2,modelId=2684,crop=list/frases-motivadoras-camiseta-holgada-mujer.jpg" class="d-block w-100" alt="playeragoodday">
@@ -151,26 +163,41 @@
                 <p class="Description">
                     Descripción: 
                     <br>
-                    Playera representativa "Good day" </p>
+                    Playera representativa "Good day"
+                    <br> 
+                    $480
+                    <br> 
+                     <a style="margin: 0 16px" href= "formulariocompra.html" target= "black" rel= "nooper noreferrer"> <img style="border-radius:4px;" width="30"height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj6I2E7pq9iLaTsNiOWquTecyMMkdnGJTAQ&usqp=CAU"></a>
+                   </p>
               </div>
               <div>
                   <br>
             </div>
               <div class="col">
                 <img id="imagenes" class= "border border border-dark" width="200"height="200" src="https://http2.mlstatic.com/D_NQ_NP_896948-MLM46389995377_062021-W.jpg" class="d-block w-100" alt="playeradontgiveup">
-                <h2>Playera Neve Give UP</h2> 
+                <h2>Playera Never Give UP</h2> 
                 <p class="Description">
                     Descripción: 
                     <br>
-                    Playera representativa de hombre y mujer "Never Give UP" </p>
+                    Playera representativa de hombre y mujer "Never Give UP" 
+                    <br> 
+                    $900
+                    <br> 
+                     <a style="margin: 0 16px" href= "formulariocompra.html" target= "black" rel= "nooper noreferrer"> <img style="border-radius:4px;" width="30"height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj6I2E7pq9iLaTsNiOWquTecyMMkdnGJTAQ&usqp=CAU"></a>
+                   </p>
               </div>
               <div class="col">
                 <img class= "imagenes border border border-danger" width="200"height="200" src="https://image.spreadshirtmedia.net/image-server/v1/mp/products/T631A2MPA4699PT17X0Y7D179948847FS7584/views/1,width=378,height=378,appearanceId=2,backgroundColor=F2F2F2,modelId=2552,crop=list/frase-motivadora-camiseta-mujer.jpg" class="d-block w-100" alt="playeranosetrata">
-                <h2>Playera Donde quieres llegare</h2> 
+                <h2>Playera Llegaras</h2> 
                 <p class="Description">
                     Descripción: 
                     <br>
-                    Playera representativa "Donde quieras llegar" </p>
+                    Playera representativa "Donde quieras llegar" 
+                    <br> 
+                    $500
+                    <br> 
+                     <a style="margin: 0 16px" href= "formulariocompra.html" target= "black" rel= "nooper noreferrer"> <img style="border-radius:4px;" width="30"height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj6I2E7pq9iLaTsNiOWquTecyMMkdnGJTAQ&usqp=CAU"></a>
+                   </p>
               </div>
               <div class="col">
                 <img class= "border border border-danger center" width="200"height="200" src="https://ih1.redbubble.net/image.1023111970.4387/ssrco,classic_tee,womens,fafafa:ca443f4786,front_alt,square_product,600x600.jpg" class="d-block w-100" alt="playerafortalece">
@@ -178,7 +205,12 @@
                 <p class="Description">
                     Descripción: 
                     <br>
-                    Playera representativa "Fortalece en esperanza" </p>
+                    Playera representativa "Fortalece en esperanza"
+                    <br> 
+                    $550
+                    <br> 
+                     <a style="margin: 0 16px" href= "formulariocompra.html" target= "black" rel= "nooper noreferrer"> <img style="border-radius:4px;" width="30"height="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj6I2E7pq9iLaTsNiOWquTecyMMkdnGJTAQ&usqp=CAU"></a>
+                   </p>
               </div>
             </div>
           </div>
