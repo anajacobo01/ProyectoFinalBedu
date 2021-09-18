@@ -1,25 +1,28 @@
 let ventaActiva = false;
 let allVentas = false;
 
+const reinventa = new Reinventa();
+reinventa.cargaExistencias(playeras);
 
-const productosWrapper = document.querySelector('#playera');
+const productosWrapper = document.querySelector('#playeras');
 
 let posicion = 0;
-for (playera of playeras.inventario) {
+for (playera of reinventa.inventario) {
+  
     const wrapper = document.createElement('div');
-    const titulo = document.createElement('h3');
-    titulo.textContent = playeras.titulo;
+    const titulo = document.createElement('h2');
+    titulo.textContent = playera.titulo;
     const descripcion = document.createElement('h3');
     titulo.textContent = playera.descripcion;
-    const precio = document.createElement('h4');
+    const precio = document.createElement('h5');
     precio.textContent = `$ ${playera.precio}`;
-    const tipo = document.createElement('h3');
+    const tipo = document.createElement('h5');
     titulo.textContent = playera.titulo;
     tipo.textContent = playera.tipo;
     descripcion.textContent = playera.descripcion;
     const existencia = document.createElement('h5');
     existencia.textContent = playera.existencia;
-    existencia.id = `${playera.titulo.includes(' ') ? playera.tipo.replace(' ', '_') : playera.tipo}-${posicion}-existencia`;
+    existencia.id = `${playera.titulo.includes(' ') ? playera.titulo.replace(' ', '_') : playera.titulo}-${playera.tamano}-${posicion}-existencia`;
     wrapper.appendChild(titulo);
     wrapper.appendChild(descripcion);
     wrapper.appendChild(precio);
@@ -29,13 +32,13 @@ for (playera of playeras.inventario) {
     wrapperAcciones.classList.add('contenedorAcciones')
     const agregar = document.createElement('button')
     agregar.textContent = '+';
-    agregar.id = `${playera.titulo.includes(' ') ? playera.tipo.replace(' ', '_') : producto.tipo}-${producto.tamano}-${posicion}-agregar`;
+    agregar.id = `${playera.titulo.includes(' ') ? playera.titulo.replace(' ', '_') : playera.titulo}-${playera.tipo}-${playera.tamano}-${posicion}-agregar`;
     agregar.classList.add('productoButton');
     agregar.classList.add('productoAgrega');
     agregar.classList.add('buttonInvisible');
     const quitar = document.createElement('button')
     quitar.textContent = '-';
-    quitar.id = `${playera.titulo.includes(' ') ? playera.tipo.replace(' ', '_') : producto.tipo}-${producto.tamano}-${posicion}-quitar`;
+    quitar.id = `${playera.titulo.includes(' ') ? playera.titulo.replace(' ', '_') : playera.titulo}-${playera.tipo}-${playera.tamano}-${posicion}-quitar`;
     quitar.classList.add('productoButton');
     quitar.classList.add('productoQuita');
     quitar.classList.add('buttonInvisible');
@@ -62,7 +65,7 @@ document.querySelector('#nuevaVenta').addEventListener('click', function(event) 
             allVentas = false;
         }
         document.querySelector('#allVentas').disabled = true;
-        playera.registrarVenta();
+        reinventa.registrarVenta();
     } else {
         event.target.textContent = 'Iniciar Venta';
         for (elemento of document.querySelectorAll('.productoButton')) {
@@ -70,7 +73,7 @@ document.querySelector('#nuevaVenta').addEventListener('click', function(event) 
             elemento.classList.add('buttonInvisible');
         }
         document.querySelector('#allVentas').disabled = null;
-        alert(`EL total de su compra es: $${playera.cerrarVenta()}`);
+        alert(`EL total de su compra es: $${reinventa.cerrarVenta()}`);
         for (b of document.querySelectorAll('.productoQuita')) {
             b.disabled = true;
         }
@@ -85,7 +88,7 @@ document.querySelector('#allVentas').addEventListener('click', function(event) {
         document.querySelector('#wapperDetalleVentas').style.display='none';
     }
 
-    if (playera.verVentas().length === 0) {
+    if (reinventa.verVentas().length === 0) {
         document.querySelector('#detalleVentas').textContent = '<h1>Sin ventas registradas</h1>';
     } else {
         const wrapperFull = document.createElement('table');
@@ -125,12 +128,15 @@ document.querySelector('#allVentas').addEventListener('click', function(event) {
 for (boton of document.querySelectorAll('.productoAgrega')) {
     boton.addEventListener('click', function(event) {
         const tipo = event.target.id.split('-');
-        const tipoProducto = tipo[0].includes('_') ? tipo[0].replace('_', ' ') : tipo[0];
-        const producto = playera.inventario.filter( (valor) => valor.titulo === tipoProducto && valor.tipo === tipo[1])[0];
-        playera.getVentaActiva().agregarProducto(producto);
-        playera.actualizarInventario(playera.titulo, playera.tipo, 'salida');
+        console.log(tipo);
+        const tituloProducto = tipo[0].includes('_') ? tipo[0].replace('_', ' ') : tipo[0];
+        const playera = reinventa.inventario.filter( (valor) => valor.titulo === tituloProducto  && valor.tipo === tipo[1]);
+        console.log(playera);
+        reinventa.getVentaActiva().agregarProducto(playera);
+    
+        reinventa.actualizarInventario(playera.titulo, playera.tipo, 'salida');
         document.querySelector(`#${tipo[0]}-${tipo[1]}-${tipo[2]}-existencia`).textContent = playera.existencia;
-        const productoOrdenCompra = panaderia.getVentaActiva().getCantidadProducto(producto);
+        const productoOrdenCompra = reinventa.getVentaActiva().getCantidadProducto(playera);
         document.querySelector(`#${tipo[0]}-${tipo[1]}-${tipo[2]}-quitar`).disabled = productoOrdenCompra === 0 ? true : false;
     });
 }
@@ -139,11 +145,11 @@ for (botonq of document.querySelectorAll('.productoQuita')) {
     botonq.addEventListener('click', function(event) {
         const tipo = event.target.id.split('-');
         const tipoProducto = tipo[0].includes('_') ? tipo[0].replace('_', ' ') : tipo[0];
-        const producto = panaderia.inventario.filter( (valor) => valor.tipo === tipoProducto && valor.tamano === tipo[1])[0];
-        panaderia.getVentaActiva().quitarProducto(producto);
-        panaderia.actualizarInventario(producto.tipo, producto.tamano, 'entrada');
-        document.querySelector(`#${tipo[0]}-${tipo[1]}-${tipo[2]}-existencia`).textContent = producto.existencia;
-        const productoOrdenCompra = panaderia.getVentaActiva().getCantidadProducto(producto);
+        const playera = reinventa.inventario.filter( (valor) => valor.tipo === tipoProducto && valor.tamano === tipo[1])[0];
+        reinventa.getVentaActiva().quitarProducto(playera);
+        reinventa.actualizarInventario(playera.tipo, playera.tamano, 'entrada');
+        document.querySelector(`#${tipo[0]}-${tipo[1]}-${tipo[2]}-existencia`).textContent = playera.existencia;
+        const productoOrdenCompra = reinventa.getVentaActiva().getCantidadProducto(playera);
         document.querySelector(`#${tipo[0]}-${tipo[1]}-${tipo[2]}-quitar`).disabled = productoOrdenCompra === 0 ? true : false;
     });
 }

@@ -6,7 +6,7 @@ class Reinventa {
 
     cargaExistencias(playeras) {
         this.inventario = playeras.map(
-            (value) => new Producto(value.titulo, value.descripcion, value.precio, value.tipo, value.existencia)
+            (value) => new Playera(value.titulo, value.descripcion, value.precio, value.tipo, value.existencia, value.tamano)
         );
     }
 

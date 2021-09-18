@@ -5,12 +5,12 @@ class OrdenCompra {
 
     agregarProducto(playera) {
         const existe = this.playeras.filter(
-            valor => valor.titulo === playera.titulo && valor.tipo === playera.tipo);
+            valor => valor.titulo === playera.titulo && valor.tipo === playera.tipo && valor.tamano === playera.tamano);
         if (existe.length === 0) {
-            this.playera.push({ titulo: playera.titulo, tipo: playera.tipo, cantidad: 1});
+            this.playeras.push({ titulo: playera.titulo, tipo: playera.tipo, tamano: playera.tamano, cantidad: 1});
         } else {
-            this.playera = this.playera.reduce( (acc, valor) => {
-                if (valor.titulo === playera.titulo && valor.tipo === playera.tipo) {
+            this.playeras = this.playeras.reduce( (acc, valor) => {
+                if (valor.titulo === playera.titulo && valor.tipo === playera.tipo && valor.tamano === playera.tamano) {
                     valor.cantidad++;
                 }
                 acc.push(valor);
@@ -43,8 +43,8 @@ class OrdenCompra {
     }
 
     getCantidadProducto(playera) {
-        const productoOrden = this.playera.filter(
-            valor => valor.tipo === playera.titulo && valor.tipo === playera.tipo
+        const productoOrden = this.playeras.filter(
+            valor => valor.tipo === playera.titulo && valor.tipo === tipo && valor.tamano === tamano
         );
         if (productoOrden.length === 0) {
             return 0;

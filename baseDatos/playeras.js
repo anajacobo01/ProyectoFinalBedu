@@ -4,7 +4,8 @@ const playeras = [
         descripcion: 'Playera representativa Believe in your Self',
         precio: 340,
         tipo: 'mujer',
-        existencia: 30
+        existencia: 30, 
+        tamano: 'chica'
          
     },
     {
@@ -12,7 +13,8 @@ const playeras = [
         descripcion: 'Playera representativa Los 40s',
         precio: 450,
         tipo: 'hombre',
-        existencia: 34
+        existencia: 34,
+        tamano: 'mediana'
         
     },
     {
@@ -20,15 +22,16 @@ const playeras = [
         descripcion: 'Playera representativa Good day',
         precio: 480,
         tipo: 'mujer',
-        existencia: 24
-        
+        existencia: 24,
+        tamano: 'grande'
     },
     {
         titulo: 'Playera Never Give UP',
         descripcion: 'Playera representativa de hombre y mujer Never Give UP',
         precio: 900,
         tipo: 'hombre',
-        existencia: 33
+        existencia: 33,
+        tamano: 'chica'
         
     }, 
     {
@@ -36,7 +39,8 @@ const playeras = [
         descripcion: 'Playera representativa Donde quieras llegar',
         precio: 500,
         tipo: 'mujer',
-        existencia: 50
+        existencia: 50,
+        tamano: 'grande'
         
     }, 
     {
@@ -44,7 +48,8 @@ const playeras = [
         descripcion: 'Playera representativa Fortalece en esperanza',
         precio: 550,
         tipo: 'mujer',
-        existencia: 30
+        existencia: 30,
+        tamano: 'mediana'
         
     },
     {
@@ -52,7 +57,8 @@ const playeras = [
         descripcion: 'Playera representativa Day Dreamer',
         precio: 450,
         tipo: 'mujer',
-        existencia: 40
+        existencia: 40,
+        tamano: 'grande'
         
     },
     {
@@ -60,7 +66,8 @@ const playeras = [
         descripcion: 'Playera representativa "Shutup and Train',
         precio: 500,
         tipo: 'hombre',
-        existencia: 43
+        existencia: 43,
+        tamano: 'chica'
         
     },
     {
@@ -68,7 +75,8 @@ const playeras = [
         descripcion: 'Playera representativa personalizada',
         precio: 550,
         tipo: 'hombre',
-        existencia: 50
+        existencia: 50,
+        tamano: 'mediana'
         
     },
     {
@@ -76,7 +84,8 @@ const playeras = [
         descripcion: 'Playera representativa Me puse feliz',
         precio: 480,
         tipo: 'hombre',
-        existencia: 52
+        existencia: 52,
+        tamano: 'grande'
         
     },
     {
@@ -84,7 +93,8 @@ const playeras = [
         descripcion: 'Playera representativa Nunca me paro',
         precio: 500,
         tipo: 'hombre',
-        existencia: 35
+        existencia: 35,
+        tamano: 'mediana'
         
     },
     {
@@ -92,7 +102,8 @@ const playeras = [
         descripcion: 'Playera representativa Life',
         precio: 550,
         tipo: 'hombre',
-        existencia: 35
+        existencia: 35,
+        tamano: 'grande'
         
     }
 ]
